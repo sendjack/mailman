@@ -13,15 +13,14 @@ import tornado.web
 
 from jutil.errors import OverrideRequiredError, OverrideNotAllowedError
 from jutil.base_type import to_integer
-from jackalope.mailer import MAIL
-from jackalope.foreman import Foreman
+from redflag.redflag import MAIL
+#from jackalope.foreman import Foreman
 import settings
 
 
 class MailHandler(tornado.web.RequestHandler):
 
-    """ Display the Deck. """
-
+    """Receive Mail."""
 
     def get(self):
         raise OverrideNotAllowedError()
@@ -49,7 +48,7 @@ class MailHandler(tornado.web.RequestHandler):
         raise OverrideRequiredError()
 
 
-class MailToHandler(MailHandler):
+class CommentHandler(MailHandler):
 
     email_regex = unicode(r"(.+)\-(\d+)@")
     email_pattern = re.compile(email_regex)
@@ -78,13 +77,13 @@ class MailToHandler(MailHandler):
         task_id = to_integer(match.group(2))
 
         if service and task_id:
-            foreman = Foreman()
+            #foreman = Foreman()
             message = unicode("{}:\n{}\n{}").format(
                     subject,
                     most_recent_body,
                     stripped_signature)
             message = message.strip()
-            foreman.ferry_comment(service, task_id, message)
+            #foreman.ferry_comment(service, task_id, message)
 
         # note: other MIME headers are also posted here...
 
