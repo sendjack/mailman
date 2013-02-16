@@ -29,6 +29,8 @@ options.parse_command_line()
 MEDIA_ROOT = path(ROOT, 'media')
 #TEMPLATE_ROOT = path(ROOT, 'view/templates')
 MAILGUN_API_KEY = environment.get_unicode(unicode("MAILGUN_API_KEY"))
+MAILGUN_DOMAIN = environment.get_unicode(unicode("MAILGUN_DOMAIN"))
+
 #
 # settings dictionary
 settings = {}
