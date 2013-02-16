@@ -1,3 +1,6 @@
 [submodule "mailman/jutil"]
 	path = mailman/jutil
 	url = https://github.com/sendjack/jutil.git
+[submodule "mailman/redflag"]
+	path = mailman/redflag
+	url = https://github.com/sendjack/redflag.git
