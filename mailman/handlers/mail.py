@@ -11,17 +11,11 @@ import hmac
 import re
 import tornado.web
 
-from jackalope.errors import OverrideRequiredError, OverrideNotAllowedError
-from jackalope.util.base_type import to_integer
+from jutil.errors import OverrideRequiredError, OverrideNotAllowedError
+from jutil.base_type import to_integer
 from jackalope.mailer import MAIL
-from jackalope.mailer import MAILGUN_API_KEY as API_KEY
 from jackalope.foreman import Foreman
-
-
-#POSTMASTER_LOGIN = "postmaster"
-#POSTMASTER_PASSWORD = "6uug3km0ofv8"
-#TEST_LOGIN = "test"
-#TEST_PASSWORD = "themightypeacock"
+import settings
 
 
 class MailHandler(tornado.web.RequestHandler):
@@ -37,7 +31,7 @@ class MailHandler(tornado.web.RequestHandler):
         token = self.get_argument(MAIL.TOKEN)
         timestamp = self.get_argument(MAIL.TIMESTAMP)
         signature = self.get_argument(MAIL.SIGNATURE)
-        if self.verify(API_KEY, token, timestamp, signature):
+        if self.verify(settings.MAILGUN_API_KEY, token, timestamp, signature):
             self._process_request()
         else:
             raise UnverifiedMailRequestError()

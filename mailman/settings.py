@@ -12,7 +12,7 @@ import tornado
 #import tornado.template
 from tornado.options import define, options
 
-from util import environment
+from jutil import environment
 
 # Make filepaths relative to settings.
 path = lambda root, *a: os.path.join(root, *a)
@@ -28,6 +28,7 @@ options.parse_command_line()
 
 MEDIA_ROOT = path(ROOT, 'media')
 #TEMPLATE_ROOT = path(ROOT, 'view/templates')
+MAILGUN_API_KEY = environment.get_unicode(unicode("MAILGUN_API_KEY"))
 #
 # settings dictionary
 settings = {}

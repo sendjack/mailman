@@ -1,0 +1,7 @@
+# standard
+distribute==0.6.27
+wsgiref==0.1.2
+
+# general
+tornado==2.4
+requests==0.14.2
