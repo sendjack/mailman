@@ -45,3 +45,8 @@ settings['ui_modules'] = {}
 
 if options.config:
     tornado.options.parse_config_file(options.config)
+
+# SERVICES
+JACKALOPE_DOMAIN = environment.get_unicode(unicode("JACKALOPE_DOMAIN"))
+JACKALOPE_COMMENT_PATH = "/comment/"
+JACKALOPE_TASK_PATH = "/task/"
