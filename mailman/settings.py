@@ -48,5 +48,4 @@ if options.config:
 
 # SERVICES
 JACKALOPE_DOMAIN = environment.get_unicode(unicode("JACKALOPE_DOMAIN"))
-JACKALOPE_COMMENT_PATH = "/comment/"
-JACKALOPE_TASK_PATH = "/task/"
+SEND_JACK_DOMAIN = environment.get_unicode(unicode("SEND_JACK_DOMAIN"))
