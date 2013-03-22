@@ -51,7 +51,7 @@ class SendJackHandler(MailHandler):
 
 class CommentSendJackHandler(SendJackHandler):
 
-    OBJECT_PATH = unicode("/a/comment")
+    OBJECT_PATH = unicode("/a/comments")
     TASK_ID = unicode("task_id")
     MESSAGE = unicode("message")
     IS_FROM_CUSTOMER = unicode("is_from_customer")
