@@ -52,7 +52,7 @@ class VendorHandler(MailHandler):
 
 class TaskVendorHandler(VendorHandler):
 
-    OBJECT_PATH = unicode("/task")
+    OBJECT_PATH = unicode("/tasks")
 
     def _construct_data_dict(self):
         """Construct an object's data dict to post with the request."""
@@ -61,7 +61,7 @@ class TaskVendorHandler(VendorHandler):
 
 class CommentVendorHandler(VendorHandler):
 
-    OBJECT_PATH = unicode("/comment")
+    OBJECT_PATH = unicode("/comments")
     MESSAGE = unicode("message")
 
     def _construct_data_dict(self):
